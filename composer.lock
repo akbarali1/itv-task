@@ -4,8 +4,166 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c491b8531eec05ba41a11d9276a5749",
+    "content-hash": "c0c00aaed4039b8520e645a104018229",
     "packages": [
+        {
+            "name": "akbarali/action-data",
+            "version": "0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akbarali1/action-data.git",
+                "reference": "c8fba553a2ee3e3fcf578dee3389eac2b74d8b11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akbarali1/action-data/zipball/c8fba553a2ee3e3fcf578dee3389eac2b74d8b11",
+                "reference": "c8fba553a2ee3e3fcf578dee3389eac2b74d8b11",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": ">=8.10.0",
+                "illuminate/http": ">=8.10.0",
+                "illuminate/support": ">=7",
+                "illuminate/validation": ">=8.10.0",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Akbarali\\ActionData\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akbarali",
+                    "email": "github@akbarali.uz",
+                    "homepage": "https://github.com/akbarali1"
+                }
+            ],
+            "description": "Action Data Validate PHP Laravel",
+            "keywords": [
+                "laravel",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/akbarali1/action-data/issues",
+                "source": "https://github.com/akbarali1/action-data/tree/0.7"
+            },
+            "time": "2024-02-27T07:52:05+00:00"
+        },
+        {
+            "name": "akbarali/data-object",
+            "version": "2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akbarali1/data-object.git",
+                "reference": "99fb66131a04aba4ae69a3215a0ad74de3312221"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akbarali1/data-object/zipball/99fb66131a04aba4ae69a3215a0ad74de3312221",
+                "reference": "99fb66131a04aba4ae69a3215a0ad74de3312221",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=7",
+                "illuminate/support": ">=7",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Akbarali\\DataObject\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akbarali",
+                    "email": "github@akbarali.uz",
+                    "homepage": "https://github.com/akbarali1"
+                }
+            ],
+            "description": "Data Object PHP Laravel",
+            "keywords": [
+                "laravel",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/akbarali1/data-object/issues",
+                "source": "https://github.com/akbarali1/data-object/tree/2.3"
+            },
+            "time": "2024-03-15T10:46:25+00:00"
+        },
+        {
+            "name": "akbarali/view-model",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akbarali1/view-model.git",
+                "reference": "6535310304718d5ef6b7579004d37a37beecca52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akbarali1/view-model/zipball/6535310304718d5ef6b7579004d37a37beecca52",
+                "reference": "6535310304718d5ef6b7579004d37a37beecca52",
+                "shasum": ""
+            },
+            "require": {
+                "akbarali/data-object": ">=1",
+                "illuminate/contracts": ">=8.10.0",
+                "illuminate/database": ">=7",
+                "illuminate/http": ">=8.10.0",
+                "illuminate/pagination": ">=8.10.0",
+                "illuminate/support": ">=7",
+                "php": ">=8.0",
+                "ramsey/uuid": ">=3.9",
+                "symfony/serializer": "^v6.0.0"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Akbarali\\ViewModel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akbarali",
+                    "email": "github@akbarali.uz",
+                    "homepage": "https://github.com/akbarali1"
+                }
+            ],
+            "description": "View Model PHP Laravel",
+            "keywords": [
+                "laravel",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/akbarali1/view-model/issues",
+                "source": "https://github.com/akbarali1/view-model/tree/1.4"
+            },
+            "time": "2024-03-11T08:45:13+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",
@@ -4914,6 +5072,104 @@
                 }
             ],
             "time": "2024-02-27T12:33:30+00:00"
+        },
+        {
+            "name": "symfony/serializer",
+            "version": "v6.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/serializer.git",
+                "reference": "88da7f8fe03c5f4c2a69da907f1de03fab2e6872"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/88da7f8fe03c5f4c2a69da907f1de03fab2e6872",
+                "reference": "88da7f8fe03c5f4c2a69da907f1de03fab2e6872",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1",
+                "symfony/deprecation-contracts": "^2.5|^3",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "doctrine/annotations": "<1.12",
+                "phpdocumentor/reflection-docblock": "<3.2.2",
+                "phpdocumentor/type-resolver": "<1.4.0",
+                "symfony/dependency-injection": "<5.4",
+                "symfony/property-access": "<5.4",
+                "symfony/property-info": "<5.4.24|>=6,<6.2.11",
+                "symfony/uid": "<5.4",
+                "symfony/validator": "<6.4",
+                "symfony/yaml": "<5.4"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^1.12|^2",
+                "phpdocumentor/reflection-docblock": "^3.2|^4.0|^5.0",
+                "seld/jsonlint": "^1.10",
+                "symfony/cache": "^5.4|^6.0|^7.0",
+                "symfony/config": "^5.4|^6.0|^7.0",
+                "symfony/console": "^5.4|^6.0|^7.0",
+                "symfony/dependency-injection": "^5.4|^6.0|^7.0",
+                "symfony/error-handler": "^5.4|^6.0|^7.0",
+                "symfony/filesystem": "^5.4|^6.0|^7.0",
+                "symfony/form": "^5.4|^6.0|^7.0",
+                "symfony/http-foundation": "^5.4|^6.0|^7.0",
+                "symfony/http-kernel": "^5.4|^6.0|^7.0",
+                "symfony/messenger": "^5.4|^6.0|^7.0",
+                "symfony/mime": "^5.4|^6.0|^7.0",
+                "symfony/property-access": "^5.4.26|^6.3|^7.0",
+                "symfony/property-info": "^5.4.24|^6.2.11|^7.0",
+                "symfony/translation-contracts": "^2.5|^3",
+                "symfony/uid": "^5.4|^6.0|^7.0",
+                "symfony/validator": "^6.4|^7.0",
+                "symfony/var-dumper": "^5.4|^6.0|^7.0",
+                "symfony/var-exporter": "^5.4|^6.0|^7.0",
+                "symfony/yaml": "^5.4|^6.0|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Serializer\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/serializer/tree/v6.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-02-22T20:27:10+00:00"
         },
         {
             "name": "symfony/service-contracts",

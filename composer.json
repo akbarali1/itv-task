@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "akbarali/action-data": "^0.7.0",
+        "akbarali/view-model": "^1.4",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
