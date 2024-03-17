@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Filters\Trait\EloquentFilterTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,7 +23,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class SubjectModel extends Model
 {
-    use HasFactory;
+    use HasFactory, EloquentFilterTrait;
 
     protected $table = 'subjects';
 
@@ -32,6 +33,7 @@ class SubjectModel extends Model
         'user_id',
     ];
 
+    #region Relations
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -41,5 +43,5 @@ class SubjectModel extends Model
     {
         return $this->hasMany(TopicModel::class, 'subject_id', 'id');
     }
-
+    #endregion
 }
