@@ -7,7 +7,7 @@ use App\ActionData\AuthActionData;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 
-class AuthController extends Controller
+final class AuthController extends Controller
 {
     public function showLogin()
     {
@@ -37,11 +37,11 @@ class AuthController extends Controller
         return to_route('login');
     }
 
-    public function test()
+    public function userCreate()
     {
         User::query()->create([
-            'name'     => 'Test User',
-            'email'    => 'me@akbararli.uz',
+            'name'     => 'Akbarali',
+            'email'    => 'github@akbararli.uz',
             'password' => bcrypt('password'),
         ]);
     }

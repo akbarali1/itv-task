@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 
 use Akbarali\ViewModel\PaginationViewModel;
 use App\ActionData\SubjectStoreActionData;
+use App\Exceptions\OperationException;
 use App\Services\SubjectService;
 use App\ViewModels\SubjectViewModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class SubjectController extends Controller
+final class SubjectController extends Controller
 {
-
     public function __construct(
         protected SubjectService $service
     ) {}
@@ -25,7 +25,7 @@ class SubjectController extends Controller
     public function index(Request $request): View
     {
         $filters        = collect();
-        $dataCollection = $this->service->paginate((int)$request->get('page', 1), 30, $filters);
+        $dataCollection = $this->service->paginate((int)$request->get('page', 1), 25, $filters);
 
         return (new PaginationViewModel($dataCollection, SubjectViewModel::class))->toView('subject.index');
     }
@@ -46,9 +46,9 @@ class SubjectController extends Controller
     {
         try {
             $request->request->set('user_id', $request->user()->id);
-            $userData = $this->service->store(SubjectStoreActionData::createFromRequest($request));
+            $this->service->store(SubjectStoreActionData::createFromRequest($request));
 
-            return redirect()->route('subject.index')->with('message', trans('all.saved'));
+            return to_route('subject.index')->with('message', trans('all.saved'));
         } catch (\Exception $e) {
             return back()->withInput()->withErrors($e->getMessage());
         }
@@ -56,15 +56,18 @@ class SubjectController extends Controller
 
     /**
      * @param int $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \App\Exceptions\OperationException
+     * @return View|RedirectResponse
      */
-    public function edit(int $id)
+    public function edit(int $id): View|RedirectResponse
     {
-        $subjectData = $this->service->getSubject($id);
-        $viewModel   = new SubjectViewModel($subjectData);
+        try {
+            $subjectData = $this->service->getSubject($id);
+            $viewModel   = new SubjectViewModel($subjectData);
 
-        return $viewModel->toView('subject.store');
+            return $viewModel->toView('subject.store');
+        } catch (\Throwable $th) {
+            return to_route('subject.index')->withErrors($th->getMessage());
+        }
     }
 
     /**
@@ -95,7 +98,7 @@ class SubjectController extends Controller
 
             return back()->with('message', trans('form.deleted'));
         } catch (\Throwable $e) {
-            return back()->withInput()->withErrors($e->getMessage());
+            return to_route('subject.index')->withErrors($th->getMessage());
         }
     }
 }

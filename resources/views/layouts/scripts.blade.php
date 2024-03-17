@@ -36,12 +36,26 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
+        function NotificationMessage(message, type = 'success', url = false) {
+            const Toast = Swal.mixin({
+                toast            : true,
+                position         : 'top-end',
+                showConfirmButton: false,
+                timer            : 3000,
+                timerProgressBar : true,
+            })
+            Toast.fire({
+                icon : type,
+                title: message
+            })
+        }
+
         @if (count($errors) > 0)
-        toastr.error("{!! implode('<br/>', $errors->all()) !!}");
+        NotificationMessage('@foreach ($errors->all() as $error) {{ $error }} @endforeach', 'error');
         @endif
 
         @if (session()->has('message'))
-        toastr.success("{{ session('message') }}");
+        NotificationMessage('{{ session()->get('message') }}', 'success');
         @endif
 
         $('*[data-action=delete]').click(function (e) {
@@ -65,42 +79,6 @@
             })
         });
 
-        // today
-        // Get the current date
-        const today = new Date();
-        today.setHours(0, 0, 0, 0)
-
-        // Calculate the date 3 years ago
-        var threeYearsAgo = new Date(today.getFullYear() - 3, today.getMonth(), today.getDate());
-
-        // bootstrap datepicker
-        $(".date_format").datepicker({
-            format          : 'yyyy-mm-dd',
-            todayHighlight  : true,
-            enableOnReadonly: false,
-            language        : "{{ app()->getLocale() }}",
-            zIndexOffset    : 1500,
-            startDate       : today,
-            clearBtn        : true,
-        });
-
-        $('.birth-date-validator').datepicker({
-            format          : 'yyyy-mm-dd',
-            todayHighlight  : true,
-            enableOnReadonly: false,
-            language        : "{{ app()->getLocale() }}",
-            zIndexOffset    : 1500,
-            clearBtn        : true,
-            endDate         : threeYearsAgo,
-            beforeShowDay   : function (date) {
-                let year = date.getFullYear();
-                // Disable dates from 2020 to 2023(inclusive)
-                if (year > threeYearsAgo.getFullYear() && date < today) {
-                    return false;
-                }
-                return true
-            }
-        });
     });
 
 </script>

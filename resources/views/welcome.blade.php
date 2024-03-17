@@ -1,20 +1,30 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body style="background-color: #1e1e1e" class="container">
-
-<div class="row">
-    <div class="col-md-6 border rounded p-3 m-3">aasas</div>
-    <div class="col-md-6 border rounded p-3 m-3">asas</div>
-    <div class="col-md-6 border rounded p-3 m-3">asasas</div>
-    <div class="col-md-6 border rounded p-3 m-3">asas</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+<?php
+/**
+ * @var \Illuminate\Database\Eloquent\Collection|\App\DataObject\SubjectData[] $subjects
+ */
+?>
+@extends('layouts.guest')
+@section('content')
+    <div class="d-flex align-items-center justify-content-center" style="height:100vh;">
+        <div class="row">
+            @foreach($subjects as $subject)
+                <div class="col-md-6  p-3 text-white">
+                    <div class="border rounded p-3 w-100 h-100">
+                        <h5>{{ $subject->title }}</h5>
+                        @if(count($subject->topics) > 0)
+                            <ul class="list-unstyled">
+                                @foreach($subject->topics as $topic)
+                                    <li>
+                                        <a href="{{ route('topic.show', $topic->id) }}" class="text-white text-decoration-none" target="_blank" rel="noopener noreferrer">
+                                            {{ $topic->title }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+@endsection

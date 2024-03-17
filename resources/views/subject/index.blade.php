@@ -8,7 +8,7 @@
     <!-- /.row-->
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="m-0">@lang('form.subjects')</h5>
                     <a class="btn btn-sm btn-success" href="{{ route('subject.create') }}">
@@ -22,8 +22,8 @@
                             <th class="b-t-0">ID</th>
                             <th class="b-t-0">@lang('form.title')</th>
                             <th class="b-t-0">@lang('form.description')</th>
-                            <th class="b-t-0">@lang('form.topic_count')</th>
-                            <th class="b-t-0">@lang('form.created_at')</th>
+                            <th class="b-t-0 text-center">@lang('form.topic_count')</th>
+                            <th class="b-t-0 text-center">@lang('form.created_at')</th>
                             <th class="b-t-0" width="5px"></th>
                             <th class="b-t-0" width="5px"></th>
                             <th class="b-t-0" width="5px"></th>
@@ -35,8 +35,8 @@
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->description }}</td>
-                                <td>{{ $item->topicCount }}</td>
-                                <td>{{ $item->createdAt }}</td>
+                                <td class="text-center">{{ $item->topicCount }}</td>
+                                <td class="text-center">{{ $item->createdAt }}</td>
                                 <td>
                                     <a href="{{ route('subject.topic.index',$item->id) }}" class="btn btn-sm btn-primary text-white">
                                         @lang('form.topic')
@@ -62,14 +62,14 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer">
-                    <nav>
-                        {{ $pagination->links() }}
-                    </nav>
-                </div>
             </div>
+            @if($pagination->hasPages())
+                <div class="card card-body pb-2  d-flex align-items-center justify-content-center">
+                    {{ $pagination->links() }}
+                </div>
+            @endif
         </div>
-        <!-- /.col-->
     </div>
+    <!-- /.col-->
     <!-- /.row-->
 @endsection

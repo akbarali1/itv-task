@@ -19,3 +19,8 @@
 <script src="{{ asset('/assets/js/config.js') }}"></script>
 
 @yield('css')
+<style>
+    .swal2-container.swal2-top-end.swal2-backdrop-show {
+        z-index: 999999;
+    }
+</style>

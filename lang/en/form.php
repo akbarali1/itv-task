@@ -29,4 +29,5 @@ return [
     "yes"                   => "Yes",
     "no"                    => "No",
     "back_to_subjects"      => "Back to subjects",
+    "no_content"            => "No content",
 ];

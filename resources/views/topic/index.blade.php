@@ -13,7 +13,7 @@
         <!-- /.row-->
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="m-0">{{ $subject->title }} - @lang('form.topic')</h5>
                     <div>
@@ -33,7 +33,6 @@
                             <th class="b-t-0">@lang('form.title')</th>
                             <th class="b-t-0">@lang('form.content')</th>
                             <th class="b-t-0">@lang('form.created_at')</th>
-                            <th class="b-t-0" width="5px"></th>
                             <th class="b-t-0" width="5px"></th>
                             <th class="b-t-0" width="5px"></th>
                         </tr>
@@ -60,18 +59,18 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="8" class="text-center">@lang('form.no_data')</td>
+                                <td colspan="6" class="text-center">@lang('form.no_data')</td>
                             </tr>
                         @endforelse
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer">
-                    <nav>
-                        {{ $pagination->links() }}
-                    </nav>
-                </div>
             </div>
+            @if($pagination->hasPages())
+                <div class="card card-body pb-2  d-flex align-items-center justify-content-center">
+                    {{ $pagination->links() }}
+                </div>
+            @endif
         </div>
         <!-- /.col-->
     </div>

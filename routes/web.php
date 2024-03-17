@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('welcome');
+Route::get('/', [HomeController::class,'welcome'])->name('welcome');
+Route::get('/topic/{id}', [HomeController::class,'topicShow'])->name('topic.show');
 
 Route::controller(HomeController::class)->middleware('auth')->group(function () {
     Route::get('home', 'home')->name('home');
@@ -26,7 +27,8 @@ Route::controller(HomeController::class)->middleware('auth')->group(function () 
 Route::controller(AuthController::class)->group(function () {
     Route::get('login', 'showLogin')->name('login');
     Route::post('login', 'login');
-    Route::get('test', 'test');
+    Route::get('logout', 'logout')->name('logout');
+    Route::get('user-create', 'userCreate')->name('user.create');
 });
 Route::middleware(['auth'])->group(function () {
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Akbarali\ViewModel\PaginationViewModel;
 use App\ActionData\TopicStoreActionData;
-use App\DataObject\TopicData;
+use App\DataObject\CreateTopicData;
 use App\Exceptions\OperationException;
 use App\Filters\SubjectFilter;
 use App\Services\SubjectService;
@@ -16,9 +16,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class TopicController extends Controller
+final class TopicController extends Controller
 {
-
     public function __construct(
         protected TopicService $service,
         protected SubjectService $subjectService
@@ -34,7 +33,7 @@ class TopicController extends Controller
     {
         $filters = collect();
         $filters->push(SubjectFilter::getFilter($subjectId));
-        $dataCollection = $this->service->paginate((int)$request->get('page', 1), 30, $filters);
+        $dataCollection = $this->service->paginate((int)$request->get('page', 1), 25, $filters);
 
         return (new PaginationViewModel($dataCollection, TopicViewModel::class))->toView('topic.index', [
             'subject' => new SubjectViewModel($this->subjectService->getSubject($subjectId)),
@@ -49,11 +48,10 @@ class TopicController extends Controller
      */
     public function create(int $subjectId, Request $request): View
     {
-        $topicData = TopicData::createFromArray([
+        $topicData = CreateTopicData::createFromArray([
             'subject_id' => $subjectId,
             'user_id'    => $request->user()->id,
         ]);
-
         $viewModel = new TopicViewModel($topicData);
         $viewModel->setSubject($this->subjectService->getSubject($subjectId));
 

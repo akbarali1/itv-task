@@ -10,17 +10,18 @@ use App\DataObject\SubjectData;
 use App\DataObject\TopicData;
 use Illuminate\Support\Collection;
 
-class TopicViewModel extends BaseViewModel
+class TopicShowViewModel extends BaseViewModel
 {
     public ?int    $id;
     public int     $user_id;
     public ?int    $subject_id;
     public ?string $title;
     public ?string $content;
+    public ?string $hContent;
 
     public ?string $createdAt;
 
-    protected DataObjectBase|TopicData|CreateTopicData $_data;
+    protected DataObjectBase|TopicData $_data;
 
     public ?SubjectViewModel $subject;
 
@@ -28,13 +29,7 @@ class TopicViewModel extends BaseViewModel
     protected function populate(): void
     {
         $this->createdAt = $this->_data->created_at->format('d.m.Y H:i');
+        $this->hContent  = isset($this->content) ? nl2br($this->content) : trans('form.no_content');
     }
-
-    public function setSubject(SubjectData $subjectData): void
-    {
-        $this->subject_id = $subjectData->id;
-        $this->subject    = new SubjectViewModel($subjectData);
-    }
-
 
 }

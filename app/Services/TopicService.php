@@ -11,7 +11,7 @@ use App\Exceptions\OperationException;
 use App\Models\TopicModel;
 use Illuminate\Validation\ValidationException;
 
-class TopicService
+final class TopicService
 {
 
     /**
@@ -32,7 +32,6 @@ class TopicService
 
         return new DataObjectCollection($items, $totalCount, $limit, $page);
     }
-
 
     /**
      * @param TopicStoreActionData $actionData
@@ -66,7 +65,7 @@ class TopicService
         /** @var TopicModel $user */
         $topic = TopicModel::query()->find($id);
         if (is_null($topic)) {
-            throw new OperationException("Subject not found");
+            throw new OperationException("Topic not found", OperationException::ERROR_NOT_FOUND);
         }
 
         return TopicData::fromModel($topic);
@@ -83,7 +82,7 @@ class TopicService
         $topic = TopicModel::query()->find($id);
 
         if (is_null($topic)) {
-            throw new OperationException("Topic not found");
+            throw new OperationException("Topic not found", OperationException::ERROR_NOT_FOUND);
         }
 
         $topic->delete();
