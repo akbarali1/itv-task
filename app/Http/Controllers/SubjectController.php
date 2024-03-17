@@ -78,7 +78,10 @@ final class SubjectController extends Controller
     public function update(int $id, Request $request): RedirectResponse
     {
         try {
-            $request->request->add(['id' => $id, 'user_id' => $request->user()->id]);
+            $request->request->add([
+                'id'      => $id,
+                'user_id' => $request->user()->id,
+            ]);
             $this->service->store(SubjectStoreActionData::createFromRequest($request));
 
             return to_route('subject.index')->with('message', trans('all.updated'));

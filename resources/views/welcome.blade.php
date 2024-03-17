@@ -9,7 +9,7 @@
         <div class="row">
             @foreach($subjects as $subject)
                 <div class="col-md-6  p-3 text-white">
-                    <div class="border rounded p-3 w-100 h-100">
+                    <div class="border border-3 rounded p-3 w-100 h-100">
                         <h5>{{ $subject->title }}</h5>
                         @if(count($subject->topics) > 0)
                             <ul class="list-unstyled">
