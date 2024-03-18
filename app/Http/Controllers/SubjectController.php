@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use Akbarali\ViewModel\PaginationViewModel;
 use App\ActionData\SubjectStoreActionData;
-use App\Exceptions\OperationException;
 use App\Services\SubjectService;
 use App\ViewModels\SubjectViewModel;
 use Illuminate\Contracts\View\View;

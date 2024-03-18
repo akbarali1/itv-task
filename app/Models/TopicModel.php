@@ -33,6 +33,7 @@ class TopicModel extends Model
         'subject_id',
     ];
 
+    #region Relations
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -42,4 +43,5 @@ class TopicModel extends Model
     {
         return $this->belongsTo(SubjectModel::class, 'subject_id');
     }
+    #endregion
 }
